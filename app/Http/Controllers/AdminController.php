@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
-use View;
+use illuminate\Support\Facades\View;
 
 class AdminController extends Controller
 {
@@ -13,7 +13,7 @@ class AdminController extends Controller
             'title' => 'Halaman admin',
             'card_title' => 'Selamat Datang Di halaman Admin',
         ];
-        View::share($data_layout);
+        view::share($data_layout);
         return view('admin.index', []);
     }
 }
