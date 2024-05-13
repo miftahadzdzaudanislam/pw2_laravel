@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard2Controller;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -25,3 +26,14 @@ Route::get('/dashboard', [DashboardController::class, 'show']);
 
 use App\Http\Controllers\AdminController;
 Route::get('admin', [AdminController::class, 'index'])->name('admin');
+
+/**
+ * Methode HTTP:
+ * 1. Get: untuk menampilkan data / halaman
+ * 2. Post: untuk mengirim data seperti form
+ * 3. Put: untuk meng-update data
+ * 4. Delete: untuk menghapus data
+ */
+
+// Dashboard2 route
+Route::get('/admin/dashboard', [Dashboard2Controller::class, 'index']);
