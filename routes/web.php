@@ -21,12 +21,6 @@ Route::get('about', function(){
     return view('about');
 });
 
-use App\Http\Controllers\DashboardController;
-Route::get('/dashboard', [DashboardController::class, 'show']);
-
-use App\Http\Controllers\AdminController;
-Route::get('admin', [AdminController::class, 'index'])->name('admin');
-
 /**
  * Methode HTTP:
  * 1. Get: untuk menampilkan data / halaman
