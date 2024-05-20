@@ -12,11 +12,6 @@ Route::get('/salam', function(){ // '/' opsional
     return 'Assalamualaikum';
 });
 
-// panggil controler (profile)
-Route::get('profile', function(){
-    return view('profile');
-});
-
 Route::get('about', function(){
     return view('about');
 });
