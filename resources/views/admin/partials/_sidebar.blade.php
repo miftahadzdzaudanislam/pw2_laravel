@@ -14,7 +14,7 @@
 
       <li class="nav-item">
         <a class="nav-link @if($currentRoute != 'admin/student') collapsed @endif" href="/admin/student">
-          <i class="bi bi-grid"></i>
+          <i class="bi bi-person"></i>
           <span>Student</span>
         </a>
       </li>
