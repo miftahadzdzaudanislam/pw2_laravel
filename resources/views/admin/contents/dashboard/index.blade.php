@@ -6,8 +6,8 @@
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
-        <li class="breadcrumb-item">Pages</li>
-        <li class="breadcrumb-item active">Blank</li>
+        <li class="breadcrumb-item">Admin</li>
+        <li class="breadcrumb-item active">Dashboard</li>
       </ol>
     </nav>
   </div><!-- End Page Title -->
