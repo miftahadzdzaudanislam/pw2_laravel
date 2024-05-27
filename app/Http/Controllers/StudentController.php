@@ -17,4 +17,79 @@ class StudentController extends Controller
             'students' => $students
         ]);
     }
+
+    // methode untuk menampilkan form tambah student
+    public function create(){
+        return view('admin.contents.student.create');
+    }
+
+    // methode untuk menyimpan data student
+    public function store(Request $request){
+        // dd($request->all()); // tes coba simpan
+
+        // validasi data yang diterima
+        $request->validate([
+            'name' => 'required',
+            'nim' => 'required | numeric',
+            'major' => 'required',
+            'class' => 'required'
+        ]);
+
+        // simpan ke database
+        Student::create([
+            'name' => $request->name,
+            'nim' => $request->nim,
+            'major' => $request->major,
+            'class' => $request->class,
+        ]);
+
+        // redirect = arahkan ke student index
+        return redirect('/admin/student')->with('pesan', 'Berhasil Menambahkan Data.');
+    }
+
+    // methode untuk menampilkan halaman edit
+    public function edit($id){
+        // cari data student
+        $student = Student::find($id); // SELECT * FROM student WHERE id = $id
+
+        // kirim student ke halaman view edit
+        return view('admin.contents.student.edit', ['student' => $student]);
+    }
+
+    // methode untuk menyimpan hasil update
+    public function update($id, Request $request){
+        // cari data student
+        $student = Student::find($id); // SELECT * FROM student WHERE id = $id
+
+        // validasi data yang diterima
+        $request->validate([
+            'name' => 'required',
+            'nim' => 'required | numeric',
+            'major' => 'required',
+            'class' => 'required'
+        ]);
+
+        // Simpan perubahan
+        $student->update([
+            'name' => $request->name,
+            'nim' => $request->nim,
+            'major' => $request->major,
+            'class' => $request->class,
+        ]);
+
+        // redirect = arahkan ke student index
+        return redirect('/admin/student')->with('pesan', 'Berhasil Mengubah Data.');
+    }
+
+    // Methode untuk menghapus data student
+    public function destroy($id){
+        // cari data student
+        $student = Student::find($id); // SELECT * FROM student WHERE id = $id
+
+        // hapus student
+        $student->delete();
+
+        // redirect = arahkan ke student index
+        return redirect('/admin/student')->with('pesan', 'Berhasil Menghapus Data.');
+    }
 }
