@@ -25,7 +25,6 @@
                             <th>Name</th>
                             <th>Category</th>
                             <th>Desc</th>
-                            <th>timestamp</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -36,7 +35,6 @@
                                 <td>{{ $course->name }}</td>
                                 <td>{{ $course->category }}</td>
                                 <td>{{ $course->desc }}</td>
-                                <td>{{ $course->created_at }}</td>
                                 <td class="d-flex">
                                     <a href="{{ route('course.edit', $course->id) }}" class="btn btn-warning me-2">Edit</a>
                                     <form action="/admin/course/delete/{{ $course->id }}" method="POST">

@@ -26,6 +26,7 @@
                             <th>NIM</th>
                             <th>Major</th>
                             <th>Class</th>
+                            <th>Course</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -37,6 +38,7 @@
                                 <td>{{ $student->nim }}</td>
                                 <td>{{ $student->major }}</td>
                                 <td>{{ $student->class }}</td>
+                                <td>{!! $student->course->name ?? '<span class="badge rounded-pill bg-danger">Not Following Yet</span>' !!}</td>
                                 <td class="d-flex">
                                     <a href="{{ route('student.edit', $student->id) }}" class="btn btn-warning me-2">Edit</a>
                                     <form action="/admin/student/delete/{{ $student->id }}" method="POST">

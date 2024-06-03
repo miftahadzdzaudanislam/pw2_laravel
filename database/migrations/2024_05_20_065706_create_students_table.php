@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
+            // $table->foreignId('couse_id')->constrained('courses'); // bisa pake ini
+            $table->foreignId('couse_id')->nullable();
             $table->string('name');
             $table->string('nim');
             $table->string('major');
