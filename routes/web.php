@@ -52,7 +52,5 @@ Route::post('/admin/course/create', [CourseController::class, 'store']);
 Route::get('admin/course/edit/{id}', [CourseController::class, 'edit'])->name('course.edit');
 // Route untuk menyimpan hasil update course
 Route::put('admin/course/update/{id}', [CourseController::class, 'update']);
-// Route untuk menyimpan hasil update course
-Route::put('admin/course/update/{id}', [CourseController::class, 'update']);
 // Route untuk menghapus data course
 Route::delete('admin/course/delete/{id}', [CourseController::class, 'destroy']);

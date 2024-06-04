@@ -45,6 +45,16 @@
                     <input type="text" name="class" id="class" class="form-control" value="{{ $student->class ?? '' }}">
                 </div>
 
+                <div class="mb-2">
+                  <label for="course_id" class="form-label">Course</label>
+                  <select name="couse_id" id="course_id" class="form-select">
+                      <option value="">Select Course</option>
+                      @foreach ($courses as $course)
+                          <option value="{{ $course->id }}" {{ $student->couse_id == $course->id ? 'selected': '' }}>{{ $course->name }}</option>
+                      @endforeach
+                  </select>
+                </div>
+
                 <input type="hidden" name="id" id="id" value="{{ $student->id }}">
 
                 <div class="mb-4">

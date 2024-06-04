@@ -52,7 +52,7 @@
                           <option value="{{ $course->id }}">{{ $course->name }}</option>
                       @endforeach
                   </select>
-              </div>
+                </div>
 
                 <div class="mb-4">
                     <a href="/admin/student" class="btn btn-danger mr-2">Cancel</a>
