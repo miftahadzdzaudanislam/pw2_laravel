@@ -16,7 +16,9 @@
     <div class="row">
         <div class="card">
           <div class="card-body py-3">
+            @if (Auth::user()->role == 'administator')
             <a href="course/create" class="btn btn-primary my-3">+ Course</a>
+            @endif
             <div class="table-responsive">
                 <table class="table">
                     <thead>
@@ -25,7 +27,9 @@
                             <th>Name</th>
                             <th>Category</th>
                             <th>Desc</th>
+                            @if (Auth::user()->role == 'administator')
                             <th>Action</th>
+                            @endif
                         </tr>
                     </thead>
                     <tbody>
@@ -35,6 +39,7 @@
                                 <td>{{ $course->name }}</td>
                                 <td>{{ $course->category }}</td>
                                 <td>{{ $course->desc }}</td>
+                                @if (Auth::user()->role == 'administator')
                                 <td class="d-flex">
                                     <a href="{{ route('course.edit', $course->id) }}" class="btn btn-warning me-2">Edit</a>
                                     <form action="/admin/course/delete/{{ $course->id }}" method="POST">
@@ -43,6 +48,7 @@
                                       <button class="btn btn-danger" type="submit" onclick="return confirm('Apakah anda yakin?')">Delete</button>
                                     </form>
                                 </td>
+                                @endif
                             </tr>
                         @endforeach
                     </tbody>

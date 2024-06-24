@@ -4,6 +4,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\Dashboard2Controller;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\ProfileController;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -31,30 +32,30 @@ Route::middleware('auth')->group(function () {
      */
 
     // Route untuk menampilkan student
-    Route::get('admin/student', [StudentController::class, 'index']);
+    Route::get('admin/student', [StudentController::class, 'index'])->middleware('admin');
     // Route untuk menampilkan form tambah student
-    Route::get('admin/student/create', [StudentController::class, 'create']);
+    Route::get('admin/student/create', [StudentController::class, 'create'])->middleware('admin');
     // Route untuk mengirim data form student
-    Route::post('/admin/student/create', [StudentController::class, 'store']);
+    Route::post('/admin/student/create', [StudentController::class, 'store'])->middleware('admin');
     // Route untuk menampilkan halaman edit student
-    Route::get('admin/student/edit/{id}', [StudentController::class, 'edit'])->name('student.edit');
+    Route::get('admin/student/edit/{id}', [StudentController::class, 'edit'])->name('student.edit')->middleware('admin');
     // Route untuk menyimpan hasil update student
-    Route::put('admin/student/update/{id}', [StudentController::class, 'update']);
+    Route::put('admin/student/update/{id}', [StudentController::class, 'update'])->middleware('admin');
     // Route untuk menghapus data student
-    Route::delete('admin/student/delete/{id}', [StudentController::class, 'destroy']);
+    Route::delete('admin/student/delete/{id}', [StudentController::class, 'destroy'])->middleware('admin');
 
     // Route untuk menampilkan course
     Route::get('admin/course', [CourseController::class, 'show']);
     // Route untuk menampilkan form tambah course
-    Route::get('admin/course/create', [CourseController::class, 'create']);
+    Route::get('admin/course/create', [CourseController::class, 'create'])->middleware('admin');
     // Route untuk mengirim data form course
-    Route::post('/admin/course/create', [CourseController::class, 'store']);
+    Route::post('/admin/course/create', [CourseController::class, 'store'])->middleware('admin');
     // Route untuk menampilkan halaman edit course
-    Route::get('admin/course/edit/{id}', [CourseController::class, 'edit'])->name('course.edit');
+    Route::get('admin/course/edit/{id}', [CourseController::class, 'edit'])->name('course.edit')->middleware('admin');
     // Route untuk menyimpan hasil update course
-    Route::put('admin/course/update/{id}', [CourseController::class, 'update']);
+    Route::put('admin/course/update/{id}', [CourseController::class, 'update'])->middleware('admin');
     // Route untuk menghapus data course
-    Route::delete('admin/course/delete/{id}', [CourseController::class, 'destroy']);
+    Route::delete('admin/course/delete/{id}', [CourseController::class, 'destroy'])->middleware('admin');
 });
 
 require __DIR__.'/auth.php';
